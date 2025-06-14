@@ -1,9 +1,17 @@
 import streamlit as st
 import base64
+import time
 
 def dashboard_page():
     with open("assets/logo.png", "rb") as image_file:
         encoded_logo = base64.b64encode(image_file.read()).decode()
+
+    # WARNING 3 detik
+    warning_container = st.empty()
+    with warning_container:
+        st.warning("For best experience, please switch to light mode!", icon="⚠️")
+    time.sleep(3)
+    warning_container.empty()
 
     # CSS Styling
     st.markdown(
